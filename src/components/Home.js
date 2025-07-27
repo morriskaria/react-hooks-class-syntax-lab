@@ -1,13 +1,16 @@
-import React from "react";
+import React from 'react';
 
-function Home(props) {
-  return (
-    <div id="home">
-      <h1 style={{ color: props.color }}>
-        {props.username} is a Web Developer from {props.city}
-      </h1>
-    </div>
-  );
+class Home extends React.Component {
+  render() {
+    const { name = 'Liza', city = 'New York', color } = this.props;
+    const style = color ? { color } : {};
+    
+    return (
+      <div id="home" data-testid="home">
+        <h1 style={style}>{name} is a Web Developer from {city}</h1>
+      </div>
+    );
+  }
 }
 
 export default Home;
